@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- createSystem_form.html -->
+
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="css/form.css">
+  <meta charset="utf-8">
+  
+  
+  <title>Simulation</title>
+</head>
+
+<body>  
+<header>
+    <h1>2D Cellular Automata Simulator</h1>
+</header>
+  <nav>
+    <a href="./page.html" class="Nav">Home</a>
+    <a href="./createSystem_form.html">create your own</a>
+    <a href="./about.html">About</a>
+  </nav>
+  <br>
+  
+  <main class="Form">
+    <h3>Simulation</h3>
+    <form id="createSysForm">
+      
+      <fieldset>
+      <legend>Rule: A/B</legend>
+      <table class="Padding">
+      	 <tr>
+      	   <td colspan="5">Initial % of live cells</td>
+      	 </tr>
+      	 <tr>
+      	 <td colspan="7">
+      	   <input type="radio" id="5%" name="percent" value=5>5%  
+      	   <input type="radio" id="10%" name="percent" value=10>10%  
+      	   <input type="radio" id="20%" name="percent" value=20>20%  
+      	   <input type="radio" id="30%" name="percent" value=30>30%  
+      	   <input type="radio" id="50%" name="percent" value=30>50%
+      	 </td>
+      	               
+      	 </tr>
+      	 <tr>
+              <td colspan="2">Symbols</td>
+              <td colspan="2">
+                  <select name="symbols" id="symbols" form="createSysForm" onchange="startup()">
+                  <option value="0">&nbsp;</option>
+                  <option value="1">00100100</option>
+                  <option value="2">--*--*--</option>
+                  <option value="3">--+--+--</option>
+                  <option value="4">--#--#--</option>
+                  <option value="5">__*__*__</option>
+                  <option value="6">__+__+__</option>
+                  <option value="7">__#__#__</option>
+                </select>
+              </td>
+          </tr>
+          
+            <tr><td colspan="9"></td></tr>
+            <tr>
+              <td>A:	</td>
+              <td>
+                <input id="a1" type="checkbox" name="a1" value=1> 1
+              </td>
+              <td>
+                <input id="a2" type="checkbox" name="a2" value=2> 2
+              </td>
+              <td>
+                <input id="a3" type="checkbox" name="a3" value=3> 3
+              </td>
+              <td>
+                <input id="a4" type="checkbox" name="a4" value=4> 4
+              </td>
+              <td>
+                <input id="a5" type="checkbox" name="a5" value=5> 5
+              </td>
+              <td>
+                <input id="a6" type="checkbox" name="a6" value=6> 6
+              </td>
+              <td>
+                <input id="a7" type="checkbox" name="a7" value=7> 7
+              </td>
+              <td>
+                <input id="a8" type="checkbox" name="a8" value=8> 8
+              </td>
+            </tr>
+            <tr>
+              <td>B:	</td>
+              <td>
+                <input id="b1" type="checkbox" name="b1" value=1> 1
+              </td>
+              <td>
+                <input id="b2" type="checkbox" name="b2" value=2> 2
+              </td>
+              <td>
+                <input id="b3" type="checkbox" name="b3" value=3> 3
+              </td>
+              <td>
+                <input id="b4" type="checkbox" name="b4" value=4> 4
+              </td>
+              <td>
+                <input id="b5" type="checkbox" name="b5" value=5> 5
+              </td>
+              <td>
+                <input id="b6" type="checkbox" name="b6" value=6> 6
+              </td>
+              <td>
+                <input id="b7" type="checkbox" name="b7" value=7> 7
+              </td>
+              <td>
+                <input id="b8" type="checkbox" name="b8" value=8> 8
+              </td>
+            </tr>
+            <tr><td colspan="9"></td></tr>
+			<tr>
+              <td colspan="4">Pre-defined Rules</td>
+              <td colspan="3">
+                <select name="systems" id="systems" form="createSysForm" onchange="systemDefs()">
+                  <option value="0">&nbsp;</option>
+                  <option value="23/3">Conway's game of life</option>
+                  <option value="34/34">34/34</option>
+                  <option value="34/346">34/346</option>
+                  <option value="125/36">125/36</option>
+                  <option value="1358/357">1358/357</option>
+                  <option value="345/4567">345/4567</option>
+                </select>
+              </td>
+            </tr>
+           
+            
+        	</table>
+        	  <br>
+            	<input onclick="startStop()" id="genStep" type="submit" value="Next">
+            	<p>* selecting a symbol pattern produces a randomly generated grid</p>
+            	<p>* rules can be changed at any point during the sim</p>
+         	 </fieldset>
+
+        
+        <br><br>
+
+      	<!-- used for grid to display cellular automata evolution -->
+      	<div>
+        	<div class="tooltip">
+  		    	<span class="tooltiptext" id="tooltipGen"></span>
+  	    	</div>
+        	<textarea class="Centered" id="textGrid" onmouseover="showGen()" onmouseout="hideGen()" form="createSysForm" name="textGrid" rows="50" cols="120" readonly></textarea>
+		</div>
+	</form>
+  </main> 
+</body>
+<script src="scripts/automata.js"></script>
+</html>

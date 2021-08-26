@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- about.html -->
+
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="css/page.css">
+	<meta charset="utf-8">
+	
+	<title>About</title>
+</head>
+
+<body>
+  <header>
+    <h1>2D Cellular Automata Simulator</h1>
+  </header>
+
+  <nav>
+    <a href="./page.html" class="Nav">Home</a>
+    <a href="./createSystem_form.html">create your own</a>
+    <a href="./about.html">About</a>
+  </nav>
+
+  <main>
+    <h3>Rules</h3>
+	<p>
+		Rule shorthand: A/B
+		<br>
+		A - each digit represents a number of neighbors for which a 'live' cell will continue onto the next generation, for any other number of neighbors the cell will 'die'.<br>
+		B - each digit represents a number of neighbors for which a 'dead' cell will become 'alive' in the next generation.<br>
+	</p>
+	
+	<br>
+	<h3>Neighborhood</h3>
+	<p>
+		This program uses whats known as the Moore neighborhood (behavior is determined by the states of all 8 surrounding cells).
+		<br><br>
+    	<img src="images/Moore_neighborhood.png" alt="Moore neighborhood" width="150" height="150">
+    </p>
+    
+    <br>
+	<h3>Grid</h3>
+	<p>
+		The grid in this program does not wrap, therefore any live cells that reach the boundaries die.
+	</p>
+
+
+  </main>
+</body>
+</html>
